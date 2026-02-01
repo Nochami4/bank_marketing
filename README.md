@@ -1,5 +1,7 @@
 # Bank Marketing (UCI id=222)
+
 pet‑проект, где учим модель предсказывать, подпишется ли клиент на депозит, и поднимаем простой inference API.
+
 Датасет: UCI Bank Marketing (https://archive.ics.uci.edu/dataset/222/bank+marketing)
 
 ## Setup
@@ -8,21 +10,22 @@ python -m venv .venv
 # Linux/WSL
 source .venv/bin/activate
 pip install -r requirements.txt
-
-### Обучение
 ```
+
+## Training
+```bash
 python src/train.py
 ```
 Альтернативная модель:
 Скрипт печатает метрики и сохраняет модель в `models/model.joblib`.
 
 ### API
-```
+```bash
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Пример запроса:
-```
+```bash
 curl -X POST http://localhost:8000/predict \
   -H 'Content-Type: application/json' \
   -d '{
@@ -45,7 +48,7 @@ curl -X POST http://localhost:8000/predict \
 ```
 
 Ответ:
-```
+```json
 {"proba": 0.1234, "label": 0}
 ```
 
