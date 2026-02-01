@@ -1,5 +1,13 @@
 # Bank Marketing (UCI id=222)
 pet‑проект, где учим модель предсказывать, подпишется ли клиент на депозит, и поднимаем простой inference API.
+Датасет: UCI Bank Marketing (https://archive.ics.uci.edu/dataset/222/bank+marketing)
+
+## Setup
+```bash
+python -m venv .venv
+# Linux/WSL
+source .venv/bin/activate
+pip install -r requirements.txt
 
 ### Обучение
 ```
@@ -10,7 +18,7 @@ python src/train.py
 
 ### API
 ```
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Пример запроса:
